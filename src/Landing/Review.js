@@ -2,7 +2,8 @@ import { useState } from "react";
 export default function Review(props) {
   const reviewsCopy = [...props.reviews];
   const [xPos, setXPos] = useState(0);
-  console.log(reviewsCopy);
+  const [arrayCounter, setArrayCounter] = useState(1);
+  console.log(reviewsCopy.length);
 
   const translate = {
     marginLeft: `${xPos}vw`,
@@ -30,7 +31,9 @@ export default function Review(props) {
           if (xPos === 0) {
             return;
           } else {
+            setArrayCounter((prev) => prev - 1);
             setXPos((prev) => prev + 100);
+            console.log(arrayCounter);
           }
         }}
       >
@@ -40,7 +43,13 @@ export default function Review(props) {
         className="review_button"
         style={{ zIndex: "2", width: "3.5rem", position: "absolute", right: "2vw", top: "45%" }}
         onClick={() => {
-          setXPos((prev) => prev - 100);
+          if (reviewsCopy.length === arrayCounter) {
+            return;
+          } else {
+            setArrayCounter((prev) => prev + 1);
+            setXPos((prev) => prev - 100);
+            console.log(arrayCounter);
+          }
         }}
       >
         {">"}
