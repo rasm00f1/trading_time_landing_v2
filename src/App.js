@@ -10,6 +10,7 @@ function App() {
   const [cartAmount, setCartAmount] = useState("");
   const [gallery, setGallery] = useState([]);
   const [webshop, setWebshop] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [currentImg, setCurrentImg] = useState({});
   const [isFetched, setIsFetched] = useState(false);
 
@@ -45,13 +46,28 @@ function App() {
     }
     getShop();
   }, []);
+  useEffect(() => {
+    async function getReviews() {
+      const JSONData = await fetch("https://tradingtime-9cf2.restdb.io/rest/reviews", {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-apikey": "61e6e8efa0f7d226f9b75f6b",
+          "cache-control": "no-cache",
+        },
+      });
+      const reviewData = await JSONData.json();
+      setReviews(reviewData);
+    }
+    getReviews();
+  }, []);
 
   return (
     <div className="App">
       <Nav cartAmount={cartAmount} />
       <div className="banner">
         <Routes>
-          <Route path="/" element={<Landing isFetched={isFetched} setCurrentImg={setCurrentImg} gallery={gallery} />} />
+          <Route path="/" element={<Landing isFetched={isFetched} setCurrentImg={setCurrentImg} reviews={reviews} gallery={gallery} />} />
           <Route path="shop" element={<Shop isFetched={isFetched} webshop={webshop} setCartAmount={setCartAmount} />} />
           <Route path="gallerypopup" element={<Gallerypopup currentImg={currentImg} />} />
         </Routes>

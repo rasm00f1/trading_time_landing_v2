@@ -119,13 +119,17 @@ p {
 }
 
 .vendor_container {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  transition: transform 0.5s;
   display: flex;
   flex-direction: column;
-  background-color: rgb(20 20 20 / 0.75);
+  background-color: rgb(20 20 20 / 0.95);
   padding: 1rem;
-  border-radius: 2rem;
-
-  margin: 3vh auto;
+  border-radius: 0rem 2rem 0rem 0rem;
+  border-top: 0.25rem solid #fed218;
+  border-right: 0.25rem solid #fed218;
 }
 
 .vendor_links {
@@ -391,17 +395,59 @@ p {
 }
 
 /** REVIEW SECTION **/
-.review {
+.reviews {
   flex-direction: column;
   justify-content: center;
   display: flex;
-  min-height: 50vh;
+  min-height: 60vh;
+  position: relative;
 }
-.review p {
+.reviews p {
   color: white;
   font-size: 2rem;
 }
 
+.review_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  transition: margin 0.5s;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.review_container::-webkit-scrollbar {
+  display: none;
+}
+.review {
+  min-width: 100vw;
+  padding: 1rem;
+}
+.review_button {
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: white;
+  font-family: "Londrina Solid", cursive;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: rgb(150 20 150);
+  box-shadow: 2px 2px 0 #b48911;
+  margin: 1rem auto;
+  width: 10rem;
+  transition: background-color 0.25s;
+}
+.review_button:hover {
+  background-color: rgb(185 45 185);
+}
+.review_button:active {
+  transform: translateY(0.05rem);
+  transform: translateX(0.05rem);
+  box-shadow: 1.75px 1.75px 0 #b48911;
+}
 /** ANIMATIONs **/
 .fade_in {
   animation-name: fade_in_kf;
