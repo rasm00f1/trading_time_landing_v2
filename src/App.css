@@ -411,6 +411,7 @@ p {
   justify-content: center;
   display: flex;
   min-height: 60vh;
+  padding-bottom: 20vh;
   position: relative;
 }
 .reviews p {
@@ -438,6 +439,7 @@ p {
   padding: 1rem;
 }
 .review_button {
+  display: flex;
   border: none;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -447,9 +449,11 @@ p {
   padding: 0.5rem;
   background-color: rgb(150 20 150);
   box-shadow: 2px 2px 0 #b48911;
-  margin: 1rem auto;
-  width: 10rem;
+  margin: 0 auto;
+  width: 12rem;
   transition: background-color 0.25s;
+  justify-content: space-around;
+  align-items: center;
 }
 .review_button:hover {
   background-color: rgb(185 45 185);
@@ -458,6 +462,36 @@ p {
   transform: translateY(0.05rem);
   transform: translateX(0.05rem);
   box-shadow: 1.75px 1.75px 0 #b48911;
+}
+.disclosure_panel {
+  margin: 0 auto;
+  max-width: 12rem;
+  padding: 0.55rem;
+  background-color: rgb(150 20 150);
+  text-align: left;
+  transform: translateY(-0.25rem);
+  box-shadow: 2px 2px 0 #b48911;
+
+  color: white;
+  font-family: "Londrina Solid", cursive;
+  font-size: 1.25rem;
+}
+.disclosure_panel input {
+  border: none;
+  border-radius: 0.25rem;
+  height: 2rem;
+  background-color: beige;
+  color: black;
+  padding: 0.25rem;
+  max-width: 100%;
+}
+.review_submit {
+  background-color: #fed218;
+  color: rgb(150 20 150);
+  width: 100%;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 /** ANIMATIONs **/
 .fade_in {
