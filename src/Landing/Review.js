@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DropDown from "./DropDown";
 export default function Review(props) {
   const reviewsCopy = [...props.reviews];
   const [xPos, setXPos] = useState(0);
@@ -23,7 +24,7 @@ export default function Review(props) {
       ) : (
         <div></div>
       )}
-      <button className="review_button">Add a Review</button>
+      <DropDown />
       <button
         className="review_button"
         style={{ zIndex: "2", width: "3.5rem", position: "absolute", left: "2vw", top: "45%" }}
