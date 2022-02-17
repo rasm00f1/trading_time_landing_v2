@@ -13,6 +13,7 @@ function App() {
   const [reviews, setReviews] = useState([]);
   const [currentImg, setCurrentImg] = useState({});
   const [isFetched, setIsFetched] = useState(false);
+  const [newSubmission, setNewSubmission] = useState(0);
 
   console.log(gallery);
   useEffect(() => {
@@ -60,14 +61,14 @@ function App() {
       setReviews(reviewData);
     }
     getReviews();
-  }, []);
+  }, [newSubmission]);
 
   return (
     <div className="App">
       <Nav cartAmount={cartAmount} />
       <div className="banner">
         <Routes>
-          <Route path="/" element={<Landing isFetched={isFetched} setCurrentImg={setCurrentImg} reviews={reviews} gallery={gallery} />} />
+          <Route path="/" element={<Landing isFetched={isFetched} setCurrentImg={setCurrentImg} reviews={reviews} gallery={gallery} setNewSubmission={setNewSubmission} />} />
           <Route path="shop" element={<Shop isFetched={isFetched} webshop={webshop} setCartAmount={setCartAmount} />} />
           <Route path="gallerypopup" element={<Gallerypopup currentImg={currentImg} />} />
         </Routes>

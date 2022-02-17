@@ -486,12 +486,18 @@ p {
   max-width: 100%;
 }
 .review_submit {
+  display: flex;
+  justify-content: center;
   background-color: #fed218;
   color: rgb(150 20 150);
   width: 100%;
   border-radius: 0.25rem;
   padding: 0.25rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.review_submit:disabled {
+  background-color: grey;
+  cursor: not-allowed;
 }
 /** ANIMATIONs **/
 .fade_in {

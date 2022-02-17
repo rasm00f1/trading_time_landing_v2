@@ -17,6 +17,7 @@ export default function Review(props) {
           {reviewsCopy.map((review) => (
             <div className="review" key={review._id}>
               <p>{review.review}</p>
+              <p style={{ fontSize: "1.5rem", fontStyle: "italic", color: "#fed218", textShadow: "2px 2px 0px rgb(150 20 150)" }}>{`- ${review.name}`}</p>
               <p>★★★★☆</p>
             </div>
           ))}
@@ -24,7 +25,7 @@ export default function Review(props) {
       ) : (
         <div></div>
       )}
-      <DropDown />
+      <DropDown setNewSubmission={props.setNewSubmission} />
       <button
         className="review_button"
         style={{ zIndex: "2", width: "3.5rem", position: "absolute", left: "2vw", top: "45%" }}
