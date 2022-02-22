@@ -1,6 +1,6 @@
 export default function Gallerypopup(props) {
   return (
-    <section className="popup_background">
+    <div className="popup_background">
       <div className="scale_in popup">
         <div className="popup_img">
           <div className="side_by_side">
@@ -16,6 +16,6 @@ export default function Gallerypopup(props) {
           <img src={`./img/${props.currentImg.galleryimg}.jpg`} alt="popup version" />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
