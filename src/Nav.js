@@ -22,7 +22,23 @@ export default function Nav(props) {
         </Link>
         <Link to="/">
           {props.cartAmount !== "" ? (
-            <p className="appear" style={{ position: "absolute", top: "-0.5rem", left: "1rem", zIndex: "1", width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "rgb(150, 20, 150)", textAlign: "center" }}>
+            <p
+              className="appear"
+              style={{
+                position: "absolute",
+                top: "-0.5rem",
+                left: "1rem",
+                zIndex: "1",
+                width: "1.5rem",
+                height: "1.5rem",
+                borderRadius: "50%",
+                backgroundColor: "rgb(150, 20, 150)",
+                textAlign: "center",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {props.cartAmount}
             </p>
           ) : (

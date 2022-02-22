@@ -10,7 +10,7 @@ export default function Review(props) {
     marginLeft: `${xPos}vw`,
   };
   return (
-    <div className="reviews">
+    <section className="reviews">
       <h2>Reviews</h2>
       {props.isFetched === true ? (
         <div style={translate} className="review_container">
@@ -56,6 +56,6 @@ export default function Review(props) {
       >
         {">"}
       </button>
-    </div>
+    </section>
   );
 }

@@ -1,8 +1,7 @@
-import "./App.css";
+import "./sass/App.scss";
 import Landing from "./Landing/Landing";
 import Nav from "./Nav";
 import Shop from "./Shop";
-import Gallerypopup from "./Landing/Gallerypopup";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,7 +10,6 @@ function App() {
   const [gallery, setGallery] = useState([]);
   const [webshop, setWebshop] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [currentImg, setCurrentImg] = useState({});
   const [isFetched, setIsFetched] = useState(false);
   const [newSubmission, setNewSubmission] = useState(0);
 
@@ -68,9 +66,8 @@ function App() {
       <Nav cartAmount={cartAmount} />
       <div className="banner">
         <Routes>
-          <Route path="/" element={<Landing isFetched={isFetched} setCurrentImg={setCurrentImg} reviews={reviews} gallery={gallery} setNewSubmission={setNewSubmission} />} />
+          <Route path="/" element={<Landing isFetched={isFetched} reviews={reviews} gallery={gallery} setNewSubmission={setNewSubmission} />} />
           <Route path="shop" element={<Shop isFetched={isFetched} webshop={webshop} setCartAmount={setCartAmount} />} />
-          <Route path="gallerypopup" element={<Gallerypopup currentImg={currentImg} />} />
         </Routes>
       </div>
     </div>
