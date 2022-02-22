@@ -64,12 +64,12 @@ function App() {
   return (
     <div className="App">
       <Nav cartAmount={cartAmount} />
-      <div className="banner">
+      <main className="banner">
         <Routes>
           <Route path="/" element={<Landing isFetched={isFetched} reviews={reviews} gallery={gallery} setNewSubmission={setNewSubmission} />} />
           <Route path="shop" element={<Shop isFetched={isFetched} webshop={webshop} setCartAmount={setCartAmount} />} />
         </Routes>
-      </div>
+      </main>
     </div>
   );
 }

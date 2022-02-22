@@ -102,12 +102,10 @@ body {
   overflow-y: scroll;
   text-align: center;
 }
-
 .banner h2 {
   color: #fed218;
   text-shadow: 2px 3px 0px rgb(150 20 150);
 }
-
 .vendor_links {
   color: #fed218;
   filter: drop-shadow(2px 3px 0px rgb(150 20 150));
@@ -147,9 +145,6 @@ body {
 }
 /* sections */
 .intro {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding-top: 8vh;
   color: white;
   display: flex;
   flex-direction: row;
@@ -175,7 +170,13 @@ body {
 .introvid_container video {
   max-width: 100%;
 }
-.gradient_background {
+.section_container {
+  section {
+    padding-top: 8vh;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.9) 32%, rgba(0, 0, 0, 0.6839110644257703) 85%, rgba(0, 0, 0, 0.3839110644257703) 95%, rgba(0, 0, 0, 0) 100%);
 }
@@ -408,6 +409,7 @@ body {
   min-height: 60vh;
   padding-bottom: 20vh;
   position: relative;
+  max-width: unset !important;
 }
 .reviews p {
   color: white;
