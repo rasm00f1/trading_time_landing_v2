@@ -37,7 +37,7 @@ export default function Landing(props) {
           </div>
         </div>
       </section>
-      <div className="gradient_background">
+      <div className="section_container">
         <GameIntro />
         <Gallery setCurrentImg={props.setCurrentImg} isFetched={props.isFetched} galleryCopy={galleryCopy} />
         <Review reviews={props.reviews} isFetched={props.isFetched} setNewSubmission={props.setNewSubmission} />
