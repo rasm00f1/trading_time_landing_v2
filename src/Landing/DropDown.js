@@ -1,9 +1,13 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { useState } from "react";
 import Arrow from "../img/Arrow";
-export default function DropDown() {
+import { TailSpin } from "react-loader-spinner";
+
+export default function DropDown(props) {
   const [nameData, setNameData] = useState("");
   const [reviewData, setReviewData] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   function handleChangeName(event) {
     console.log(event.target.value);
@@ -51,18 +55,29 @@ export default function DropDown() {
                   <br></br>
                   <input type="text" maxLength={"100"} id="review" name="review" onChange={handleChangeReview} />
                 </Disclosure.Panel>
-                <Disclosure.Panel className="disclosure_panel">
-                  <button
-                    className="review_submit"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setTimeout(() => {
+                <Disclosure.Panel className="disclosure_panel disclosure_panel_last">
+                  {submitted ? (
+                    <button disabled={true} style={{ backgroundColor: "#33F047" }} className="review_submit">
+                      Submitted
+                    </button>
+                  ) : (
+                    <button
+                      className="review_submit"
+                      disabled={submitting}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSubmitting(true);
                         post();
-                      }, 3000);
-                    }}
-                  >
-                    Submit
-                  </button>
+                        setTimeout(() => {
+                          setSubmitting(false);
+                          setSubmitted(true);
+                          props.setNewSubmission((prev) => prev + 1);
+                        }, 3000);
+                      }}
+                    >
+                      {submitting ? <TailSpin ariaLabel="Loading" color="#fed218" height={20} width={20} /> : "Submit"}
+                    </button>
+                  )}
                 </Disclosure.Panel>
               </form>
             </Transition>
